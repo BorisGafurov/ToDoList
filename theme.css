@@ -1,54 +1,71 @@
-:root {
+/*:root {
     --background-color: #0D0714;
     --text-color: white;
+    --text-h1-color: #ffffff;
     --button-background: #3E1671;
     --button-hover-background: #9E78CF;
     --task-background: #15101C;
     --task-text-color: #9E78CF;
     --task-done-text-color: #78CFB0;
-}
+}*/
 
-@media (prefers-color-scheme: dark) {
+@media (prefers-color-scheme: theme-dark) {
     body {
         --background-color: #0D0714;
+        --text-h1-color: #fff;
         --text-color: #3E1671;
         --button-background: #3E1671;
         --button-hover-background: #9E78CF;
         --task-background: #15101C;
         --task-text-color: #9E78CF;
-        --task-done-text-color: #78CFB0;
+        --task-done-text-color: #347e64;
+        --color-text-input: white; 
+        --fill-color: #3E1671;
+        --task-span-color: white;
     }
 }
 
 
-@media (prefers-color-scheme: light) {
+@media (prefers-color-scheme: theme-light) {
     body {
-        --background-color:  #F2F4F8;
+        --background-color:  #7c7d80;
         --text-color: #0D0714;
-        --button-background: #3E1671;
-        --button-hover-background: #9E78CF;
+        --text-h1-color: #2c2a2a;
+        --border-color: #2c2a2a;
+        --button-hover-background: #919056;
         --task-background: #F4F4F4;
-        --task-text-color: #3E1671;
+        --task-text-color: #7c7d80;
         --task-done-text-color: #78CFB0;
+        --color-text-input: black;
+        --fill-color: #7c7d80;
+        --task-span-color: #2c2a2a;
     }
 }
 
 .theme-dark body {
     --background-color: #0D0714;
     --text-color: #3E1671;
-    --button-background: #3E1671;
+    --text-h1-color: #ffffff;
+    --border-color: #3E1671;
     --button-hover-background: #9E78CF;
     --task-background: #15101C;
     --task-text-color: #9E78CF;
-    --task-done-text-color: #78CFB0;
+    --task-done-text-color: #347e64;
+    --color-text-input: white;
+    --fill-color: #3E1671;
+    --task-span-color: white;
 }
 
 .theme-light body {
-    --background-color:  #F2F4F8;
+    --background-color:  #7c7d80;
     --text-color: #0D0714;
-    --button-background: #3E1671;
-    --button-hover-background: #9E78CF;
-    --task-background: #F4F4F4;
-    --task-text-color: #3E1671;
+    --text-h1-color: #ffffff;
+    --border-color: #2c2a2a;
+    --button-hover-background: #919056;
+    --task-background: #2c2a2a;
+    --task-text-color: #7c7d80;
     --task-done-text-color: #78CFB0;
+    --color-text-input: black;
+    --fill-color: #7c7d80;
+    --task-span-color: #2c2a2a;
 }

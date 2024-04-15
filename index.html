@@ -21,13 +21,10 @@
           <nav class="theme__menu">
             <ul class="theme__menu_list">
                 <li class="theme__menu_item">
-                    <button type="button" class="theme__menu_button" data-theme="dark">Тёмная</button>
+                    <button id="dark-theme-button" type="button" class="theme__menu_button" data-theme="dark">Тёмная</button>
                 </li>
                 <li class="theme__menu_item">
-                    <button type="button" class="theme__menu_button" data-theme="auto">Системная</button>
-                </li>
-                <li class="theme__menu_item">
-                    <button type="button" class="theme__menu_button" data-theme="light">Светлая</button>
+                    <button id="light-theme-button" type="button" class="theme__menu_button" data-theme="light">Светлая</button>
                 </li>
             </ul>
         </nav>
@@ -42,8 +39,9 @@
                 <h2 class="tasks__text">Задачи = </h2>
                 <span>1</span>
             </div>
-            <div class="container-one">
-            <div class="task">
+            <div class="container">
+                <ul>
+                    <li class="task">
                 <span class="task__span">Сделать проектную</span>
                 <button class="button__task">
                     <svg class="img__edit" width="18" height="19"  xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
@@ -76,20 +74,25 @@
                         1.24484 13.1013 1.4197 12.9723 1.54864C12.8434 1.67757 12.6685 1.75 12.4862 1.75H5.61121C5.42887 1.75 5.254 1.67757 5.12507 
                         1.54864C4.99614 1.4197 4.92371 1.24484 4.92371 1.0625Z"/></svg>
                 </button>
+            </li>
+            </ul>
                 </div>
             </div>
         </div>
-    <div class="container-two">
-        <div class="tasks__done">
             <div class="tasks__text_div">
                 <h2 class="tasks__text">Завершенные = </h2>
                 <span>1</span>
             </div>
-            <div class="task__done">
+            <div class="container">
+                <ul>
+            <li class="task__done">
                 <span class="task__span_done">Пробежка</span>
             </div>
-        </div>
+       </li>
+    </ul>
+    </div>
     </div>
     </main>
+    <script src="app.js"></script>
 </body>
 </html>
