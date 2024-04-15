@@ -216,11 +216,14 @@ span {
 
 .theme__menu_list {
     margin-inline-start: -40px;
+    justify-content: center;
 }
 
 .div__input {
     margin-inline-start: 0;
     margin-block-start: 20px;
+    width: 90vw;
+    gap: 0;
 }
 
 input {
@@ -236,6 +239,12 @@ input {
 }
 
 ul {
-    margin-inline-start: -63px;
+    margin-inline-start: -52px;
+    width: 90vw;
+}
+
+.add__task {
+    width: 47px;
+    height: 47px;
 }
 }
