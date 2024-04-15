@@ -207,7 +207,7 @@ span {
     margin-inline-start: 5px;
 }
 
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 600px) {
 .tick {
     flex-direction: column;
     align-items: center;
