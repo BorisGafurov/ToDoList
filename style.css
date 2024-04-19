@@ -85,7 +85,20 @@ input {
     color: var(--color-text-input);
 }
 
+.error {
+    border: 1px solid red;
+}
+
+ul {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
 .add__task {
+    display: flex;
+    align-items: center;
+    justify-content: center;
     width: 47px;
     height: 47px;
     background: var(--border-color);
@@ -167,6 +180,21 @@ span {
     transition: fill 0.3s ease;
 }
 
+.img__delete_done {
+    position: absolute;
+    right: 15px;
+    top: 28px;
+    transition: fill 0.3s ease;
+    width: 16.5px;
+    height: 18px;
+    fill: var(--fill-color);
+}
+
+.img__delete_done:hover {
+    cursor: pointer;
+    fill: var(--button-hover-background);
+}
+
 .img__edit:hover,
 .img__done:hover,
 .img__delete:hover {
@@ -187,6 +215,11 @@ span {
 
 .task__span {
     color: var(--task-text-color);
+    transition: text-decoration 0.3s ease-in-out;
+}
+
+.img__done:hover+.task__span {
+    text-decoration: line-through;
 }
 
 .task__span_done {
@@ -205,6 +238,7 @@ span {
     align-items: center;
     padding-inline-start: 20px;
     margin-inline-start: 5px;
+    position: relative;
 }
 
 @media screen and (max-width: 600px) {
