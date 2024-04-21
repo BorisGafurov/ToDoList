@@ -4,10 +4,15 @@
 function saveTasks(tasks) {
     localStorage.setItem('tasks', JSON.stringify(tasks));
 }
+console.log(localStorage.getItem('tasks'))
 
 function loadTasks() {
     const tasks = localStorage.getItem('tasks');
-    //return tasks ? JSON.parse(tasks) : [];
+    if (tasks !== null && tasks !== undefined) {
+      return JSON.parse(tasks);
+    } else {
+      return [];
+    }
 }
 
 
@@ -31,6 +36,8 @@ function setTheme(theme) {
         root.style.setProperty('--color-text-input', 'black');
         root.style.setProperty('--fill-color', '#7c7d80');
         root.style.setProperty('--task-span-color', '#2c2a2a');
+        root.style.setProperty('--border-color-edit', '#7c7d80');
+        root.style.setProperty('--color-text-input-edit', '#7c7d80');
     
     } else if (theme === 'dark') {
         root.style.setProperty('--background-color', '#0D0714');
@@ -44,6 +51,8 @@ function setTheme(theme) {
         root.style.setProperty('--color-text-input', 'white');
         root.style.setProperty('--fill-color', '#3E1671');
         root.style.setProperty('--task-span-color', 'white');
+        root.style.setProperty('--border-color-edit', '#3E1671');
+        root.style.setProperty('--color-text-input-edit', '#white');
     }
 
     
@@ -66,6 +75,7 @@ document.getElementById('dark-theme-button').addEventListener('click', function(
     setTheme('dark');
 });
 
+
 // Отмена действии по умолчанию
 function tasksForm(event) {
     event.preventDefault();
@@ -78,7 +88,9 @@ function deleteTask(event) {
   const task = event.target.closest('.task'); 
   task.remove(); 
   updateTaskNumber();
-  saveTasks(task);
+  const tasks = document.querySelectorAll('.task__span');
+    const taskTexts = Array.from(tasks).map(task => task.textContent);
+  saveTasks(taskTexts);
 }
 
 
@@ -97,15 +109,54 @@ function addDoneButtonHandler() {
   });
 }
 
+
+
+// Функция кнопки редактирования задачи
+function editButton(event) {
+  const task = event.target.closest('.task');
+  const taskSpan = task.querySelector('.task__span');
+  const taskText = taskSpan.textContent;
+  const input = document.createElement('input');
+  input.setAttribute('type', 'text');
+  input.classList.add('task__input_edit');
+  input.value = taskText;
+  taskSpan.parentNode.replaceChild(input, taskSpan);
+
+  input.addEventListener('keypress', function(event) {
+    if (event.key === 'Enter') {
+        saveEditedTask(task, input);
+    }
+  });
+}
+
+// Функция для сохранения отредактированной задачи
+function saveEditedTask(task, input) {
+  const newTaskText = input.value;
+  const taskSpan = document.createElement('span');
+  taskSpan.classList.add('task__span');
+  taskSpan.textContent = newTaskText;
+  input.parentNode.replaceChild(taskSpan, input);
+  updateTaskNumber();
+    saveTasks();
+}
+
+function addEditButtonHandler() {
+  const editButtons = document.querySelectorAll('.img__edit');
+  editButtons.forEach(button => {
+      button.addEventListener('click', editButton);
+  });
+}
+
+document.addEventListener('DOMContentLoaded', function() {
+  addEditButtonHandler();
+});
+
+
+
 // Функция добавления активной задачи в "Завершенные"
 function tasksDone(doneTask) {
   const task = doneTask.closest('.task');
   const taskText = task.querySelector('.task__span').textContent;
-
-  /*let activeTasks = loadTasks();
-   activeTasks = activeTasks.filter(task => task !== taskText);
-  saveTasks(activeTasks);*/
-
   const completedTask = document.createElement('li');
   completedTask.classList.add('task__done');
   const span = document.createElement('span');
@@ -134,6 +185,9 @@ function tasksDone(doneTask) {
   updateTaskNumber();
   updateTaskDoneNumber();
   addDeleteButtonCompleted();
+  const tasks = document.querySelectorAll('.task__span');
+    const taskTexts = Array.from(tasks).map(task => task.textContent);
+    saveTasks(taskTexts);
 }
 
 function addDeleteButtonCompleted() {
@@ -185,6 +239,10 @@ const data = Array.from(elements).filter((item) => !!item.name).map((element) =>
   return { name, value };
 });
 
+//let tasks = loadTasks();
+  //tasks.push(data[0].value);
+  //saveTasks(tasks);
+
 const tasksContainer = document.getElementById('tasks-container');
 const newTask = document.createElement('li');
 newTask.classList.add('task');
@@ -229,10 +287,11 @@ updateTaskNumber();
 formNode.reset();
 addDeleteButtonHandler();
 addDoneButtonHandler();
+addEditButtonHandler();
 
-/*let tasks = loadTasks();
-tasks.push(data[0].value);
-//saveTasks(tasks);*/
+const tasks = document.querySelectorAll('.task__span');
+const taskTexts = Array.from(tasks).map(task => task.textContent);
+saveTasks(taskTexts);
 }
 
   

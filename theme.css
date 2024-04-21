@@ -22,6 +22,8 @@
         --color-text-input: white; 
         --fill-color: #3E1671;
         --task-span-color: white;
+        --border-color-edit: #3E1671;
+        --color-text-input-edit: white;
     }
 }
 
@@ -39,6 +41,8 @@
         --color-text-input: black;
         --fill-color: #7c7d80;
         --task-span-color: #2c2a2a;
+        --border-color-edit: #7c7d80;
+        --color-text-input-edit: #7c7d80;
     }
 }
 
@@ -54,10 +58,12 @@
     --color-text-input: white;
     --fill-color: #3E1671;
     --task-span-color: white;
+    --border-color-edit: #3E1671;
+    --color-text-input-edit: white;
 }
 
 .theme-light body {
-    --background-color:  #7c7d80;
+    --background-color: #7c7d80;
     --text-color: #0D0714;
     --text-h1-color: #ffffff;
     --border-color: #2c2a2a;
@@ -68,4 +74,6 @@
     --color-text-input: black;
     --fill-color: #7c7d80;
     --task-span-color: #2c2a2a;
+    --border-color-edit: #7c7d80;
+    --color-text-input-edit: #7c7d80;
 }

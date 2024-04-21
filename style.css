@@ -85,6 +85,20 @@ input {
     color: var(--color-text-input);
 }
 
+.task__input_edit {
+    border: medium solid var(--border-color-edit);
+    border-radius: 10px;
+    box-shadow: none;
+    background: none;
+    width: 27vw;
+    height: 40px;
+    padding-inline-start: 10px;
+    outline: none;
+    font-family: 'IBMPlexSans-ExtraLight', sans-serif;
+    font-size: 15px;
+    color: var(--color-text-input-edit);
+}
+
 .error {
     border: 1px solid red;
 }
