@@ -90,7 +90,7 @@ input {
     border-radius: 10px;
     box-shadow: none;
     background: none;
-    width: 27vw;
+    max-width: 355px;
     height: 40px;
     padding-inline-start: 10px;
     outline: none;
@@ -284,6 +284,7 @@ input {
 
 .task, .task__done {
     padding-inline-start: 15px;
+    gap: 15px;
 }
 
 ul {
@@ -295,4 +296,18 @@ ul {
     width: 47px;
     height: 47px;
 }
+.task__input_edit {
+    border: medium solid var(--border-color-edit);
+    border-radius: 10px;
+    box-shadow: none;
+    background: none;
+    width: 60vw;
+    height: 40px;
+    padding-inline-start: 10px;
+    outline: none;
+    font-family: 'IBMPlexSans-ExtraLight', sans-serif;
+    font-size: 15px;
+    color: var(--color-text-input-edit);
+}
+
 }
